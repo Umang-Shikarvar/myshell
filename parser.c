@@ -2,8 +2,8 @@
 
 char** parser(char* input)
 {
-    char **args = malloc(MAX_ARG * sizeof(char*));
-    if(args == NULL)
+    char **args=malloc(MAX_ARG*sizeof(char*));
+    if(!args)
     {
         perror("malloc failed");
         exit(1);

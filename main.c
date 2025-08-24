@@ -2,6 +2,7 @@
 
 int main(void)
 {
+    char** args;
     while(1)
     {
         char input[MAX_INPUT];
@@ -16,8 +17,8 @@ int main(void)
         input[strcspn(input,"\n")]='\0';
         if(input[0]=='\0')
         continue;
-        
-        char** args=parser(input);
+
+        args=parser(input);
 
         if(strcmp(args[0], "exit")==0)
         {
@@ -40,8 +41,8 @@ int main(void)
             else
             {
                 wait(NULL);
-                free(args);
             }
         }
+        free(args);
     }
 }
