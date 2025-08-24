@@ -3,10 +3,12 @@
 int main(void)
 {
     char** args;
+    const char* base_path=getcwd(NULL, 0);
+    char* path="~";
     while(1)
     {
         char input[MAX_INPUT];
-        printf("$> ");
+        printf("%s$> ",path);
         fflush(stdout);
 
         if(fgets(input,MAX_INPUT,stdin)==NULL)
@@ -20,9 +22,13 @@ int main(void)
 
         args=parser(input);
 
-        if(strcmp(args[0], "exit")==0)
+        if(strcmp(args[0],"exit")==0 || strcmp(args[0],"quit")==0)
         {
             break;
+        }
+        else if(strcmp(args[0],"cd")==0)
+        {
+            cd(args,&path,base_path);
         }
         else
         {
@@ -45,4 +51,5 @@ int main(void)
         }
         free(args);
     }
+    return 0;
 }

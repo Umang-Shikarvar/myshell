@@ -7,4 +7,5 @@
 #define MAX_INPUT 1024
 #define MAX_ARG 100
 char** parser(char* input);
+void cd(char** args,char** path,const char* base_path);
 #endif
